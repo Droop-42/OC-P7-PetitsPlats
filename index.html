@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="Fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Les petits plats</title>
+  </head>
+  <body>
+    <div class="d-flex flex-column ">
+        <div class="container">
+            <img class="rounded mx-auto my-3 d-block" src="./assets/logo.png" width="300" alt="Site logo"></img>
+            <div class="row justify-content-center ">
+                <div class="input-box m-3">
+                    <input type="search" class="form-control" id="searhBar" placeholder="Rechercher une recette">
+                    <i class="fa fa-search"></i>                    
+                </div>   
+            </div>
+        </div>
+        <div class="container" >
+            <div class="row float-start" id="tag">
+
+            </div>
+        </div>
+        <div class="container my-3">     
+            <div class="row float-start">
+                <div class="col">
+                    <div class="dro">
+                        <button id="btn-lists" expanded="false" >
+                            <input type="search" id="searchIngr" placeholder="Ingrédients"> 
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="white"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>                   
+                        </button>
+                            <ul  id="ingredients-list2">
+                            </ul>                        
+                    </div>
+                </div>
+                <!--div class="col">
+                    <div class="dropdown w-100">
+                        <button class="btn btn-primary dropdown-toggle w-100" type="button" id="dropdownMenuButton0" data-bs-toggle="dropdown" aria-expanded="false">
+                            <input type="search" id="searchIngr" placeholder="Ingrédients">                           
+                        </button>
+                        <ul class="dropdown-menu" id="ingredients-list" aria-labelledby="dropdownMenuButton0">
+                        </ul>
+                    </div>
+                </div-->
+                <div class="col">
+                    <div class="dro">
+                        <button id="btn-lists2"  expanded="false">
+                            <input type="search" id="searchAppli" placeholder="Appareils">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="white"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                        </button>
+                        <ul id="appliance-list2">
+                        </ul>
+                    </div>
+                </div>
+                <!--div class="col">
+                    <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <input type="search" id="searchAppli" placeholder="Appareils">
+                        </button>
+                        <ul class="dropdown-menu bg-success" id="appliance-list" aria-labelledby="dropdownMenuButton1">
+                        </ul>
+                    </div>
+                </div-->
+                <div class="col">
+                    <div class="dro">
+                        <button id="btn-lists3"  expanded="false">
+                            <input type="search" id="searchUst" placeholder="Ustensiles">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="white"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                        </button>
+                        <ul id="ustensils-list2">
+                        </ul>
+                    </div>
+                </div>
+                <!--div class="col">
+                    <div class="dropdown">
+                        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            <input type="search" id="searchUst" placeholder="Ustensils">
+                        </button>
+                        <ul class="dropdown-menu bg-danger" id="ustensils-list" aria-labelledby="dropdownMenuButton1">
+                        </ul>
+                    </div>
+                </div-->
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 g-4 recipes-wrapper">
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/dataFormat/Recipe.js" ></script>
+    <script src="./data/recipes.js" ></script>
+    <script src="./js/templates/RecipeCard.js" ></script>
+    <script src="./js/utils/lists.js"></script>
+    <script src="./js/utils/filter.js"></script>
+    <!--script src="./js/utils/tags.js"></script-->
+    <script src="./App.js" ></script>
+    
+  </body>
+</html>

@@ -1,8 +1,8 @@
 
-function filterSearch (searchInput, recs) {
+function filterSearch (searchInput, recipes) {
     const SearchInputWords = searchInput.toLowerCase().split(" ")
     //let filteredRecipes = JSON.parse(JSON.stringify(recipes)) 
-    let filteredRecipes = recipes.map(recipe => new Recipe(recipe)) 
+    let filteredRecipes = recipes //.map(recipe => new Recipe(recipe)) 
 
     for (let i in SearchInputWords) {
         let recipeToRemove = []

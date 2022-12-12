@@ -1,54 +1,36 @@
-
 function filterSearch (searchInput, recipes) {
     const SearchInputWords = searchInput.toLowerCase().split(" ")
-    //let filteredRecipes = JSON.parse(JSON.stringify(recipes)) 
-    let filteredRecipes = recipes //.map(recipe => new Recipe(recipe)) 
+    let filteredRecipes = recipes
+    SearchInputWords.forEach(searchWord => 
+        filteredRecipes = filteredRecipes.filter(recipe => {
+            let isInUst = 0
+            let isInIngr = 0
+            let isInName = recipe.name.toLowerCase().indexOf(searchWord) != -1
+            let isInDescr = recipe.description.toLowerCase().indexOf(searchWord) != -1
+            let isInAppli = recipe.appliance.toLowerCase().indexOf(searchWord) != -1
+            
+            recipe.ustensils.forEach( ust => {
+                if (ust.indexOf(searchWord) != -1) {
+                    isInUst += 1
+                } 
+                else if (ust.indexOf(searchWord) == -1) {
+                    isInUst += 0
+                }
+            })
 
-    for (let i in SearchInputWords) {
-        let recipeToRemove = []
-        for (let r in filteredRecipes) {
-            let isInUst = filterUstensils(SearchInputWords[i], filteredRecipes[r])
-            let isInIngr = filterIngredients(SearchInputWords[i], filteredRecipes[r])
-            let isInName = filteredRecipes[r].name.toLowerCase().indexOf(SearchInputWords[i]) != -1
-            let isInDescr = filteredRecipes[r].description.toLowerCase().indexOf(SearchInputWords[i]) != -1
-            let isInAppli = filteredRecipes[r].appliance.toLowerCase().indexOf(SearchInputWords[i]) != -1
-
-            if (!(isInAppli || isInName || isInDescr || isInUst > 0 || isInIngr > 0)) {
-                recipeToRemove.push(filteredRecipes[r])
-            }
-        }
-        if (recipeToRemove.length > 0) {
-            filteredRecipes = multiRemove(filteredRecipes, recipeToRemove)
-        }
-    }
+            recipe.ingredients.forEach( desc_ingr => {
+                if (desc_ingr.ingredient.toLowerCase().indexOf(searchWord) != -1) {
+                    isInIngr += 1
+                } 
+                else if (desc_ingr.ingredient.toLowerCase().indexOf(searchWord) == -1) {
+                    isInIngr += 0
+                }
+            })              
+            return isInAppli || isInName || isInDescr || isInUst > 0 || isInIngr > 0
+        })
+        
+        //, console.log('1',filteredRecipes,' '/*,searchWord*/)// see result!!!? "forEach is not chainable"
+    )
+    //console.log('2',filteredRecipes)
     return filteredRecipes
-}
-
-
-function filterUstensils (inputWord, recipe) {
-    for (let x = 0; x < recipe.ustensils.length; x++) { 
-        if (recipe.ustensils[x].toLowerCase().indexOf(inputWord) != -1) { 
-            return 1
-        } 
-    }
-    return 0
-}
-function filterIngredients (inputWord, recipe) {
-    
-    for (let y in recipe.ingredients) { 
-        if (recipe.ingredients[y].ingredient.toLowerCase().indexOf(inputWord) != -1) {
-            return 1
-        } 
-    }
-    return 0
-}
-
-function multiRemove(Arr, ItemstoRemove){
-    for(i = 0; i < ItemstoRemove.length; i++){
-        var ArrIndex = Arr.indexOf(ItemstoRemove[i]);
-        if(ArrIndex > -1){
-            Arr.splice(ArrIndex, 1);
-        }
-    }
-    return Arr
 }

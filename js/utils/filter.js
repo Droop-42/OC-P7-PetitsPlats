@@ -28,9 +28,6 @@ function filterSearch (searchInput, recipes) {
             })              
             return isInAppli || isInName || isInDescr || isInUst > 0 || isInIngr > 0
         })
-        
-        //, console.log('1',filteredRecipes,' '/*,searchWord*/)// see result!!!? "forEach is not chainable"
     )
-    //console.log('2',filteredRecipes)
     return filteredRecipes
 }

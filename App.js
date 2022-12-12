@@ -95,7 +95,7 @@ class App {
                 //------------------- Start timer ----------------
                 const t0 = performance.now();
                 for (let i=0; i < 2000; i++){
-                    filteredRecipes = filterSearch(searchValue, filteredRecipes)
+                    filteredRecipes = filterSearch(searchValue, Array.from(Recipes))
                     //document.getElementById('searhBar').value = " "
                 }
                 const t1 = performance.now();

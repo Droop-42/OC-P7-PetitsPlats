@@ -7,19 +7,12 @@ class App {
 
     async main() {
 
-        let tagFilteredRecipes = ""// list of filtered recipes by tags
-        let listTagBtn = `` // list of tags formated in HTML
-        let listTag = []; // list of tags used for filter algo
-        let list_tag_id = []; // list of tags id used for remove btn tag from lists
-        let unionWords = []
-        let list_word_id = []
-
         const Recipes = this.RecipesData.map(recipe => new Recipe(recipe)) // formated JSON data
         let recipesWrapper =this.$recipesWrapper       
-        let filteredRecipes = Recipes // initialize filteredRecipes, list of filtered recipes by words in searchbar 
-        tagFilteredRecipes = filteredRecipes // initialize tagFilteredRecipes
-
-        // Initialize lists of tags
+        let filteredRecipes = Array.from(Recipes) // initialize filteredRecipes, list of filtered recipes by words in searchbar 
+        //tagFilteredRecipes = filteredRecipes // initialize tagFilteredRecipes
+        let searchValue = ''
+        /*// Initialize lists of tags
         function createLists (recipes) {
             document.getElementById('ingredients-list2').innerHTML = createIngredientsSortedList(recipes);
             document.getElementById('appliance-list2').innerHTML = createApplianceSortedList(recipes);
@@ -83,11 +76,11 @@ class App {
             })
             unionWords = []  
             
-        }
+        }*/
         // Show cards (filtered) card recipes
-        function showResult (filteredRecipes) {
+        function showResult (Rec) {
             recipesWrapper.textContent = ''
-            filteredRecipes.forEach(recipe => {
+            Rec.forEach(recipe => {
                 const Template = new RecipeCard(recipe)
                 recipesWrapper.appendChild(
                     Template.createRecipeCard()
@@ -95,93 +88,25 @@ class App {
             })
         }
 
-        // Add event listener to add button tag and launch new search if an element in the lists is clicked
-        document.getElementById('ingredients-list2').addEventListener('click', function(event) {
-            addTag(event.target, 'ingr')
-            createFilteredLists()
-
-            // remove choosen tag from lists
-            list_tag_id.push('li-'+event.target.innerHTML);
-            //list_tag_id.forEach(id =>document.getElementById(id).remove())
-            unionWords = [...new Set([...list_word_id, ...list_tag_id])]
-                    unionWords.forEach(id => {
-                        if (document.getElementById(id))
-                        document.getElementById(id).remove() 
-                    }) 
-            unionWords = []
-            event.preventDefault    
-        })
-        document.getElementById('appliance-list2').addEventListener('click', function(event) {
-            addTag(event.target, 'appli')
-            createFilteredLists()
-
-            // remove choosen tag from lists
-            list_tag_id.push('li-'+event.target.innerHTML);
-            //list_tag_id.forEach(id =>document.getElementById(id).remove())
-            unionWords = [...new Set([...list_word_id, ...list_tag_id])]
-                    unionWords.forEach(id => {
-                        if (document.getElementById(id))
-                        document.getElementById(id).remove() 
-                    })
-            unionWords = []
-        })
-        document.getElementById('ustensils-list2').addEventListener('click', function(event) {
-            addTag(event.target, 'ust')
-            createFilteredLists()
-
-            // remove choosen tag from lists
-            list_tag_id.push('li-'+event.target.innerHTML);
-            //list_tag_id.forEach(id =>document.getElementById(id).remove())
-            unionWords = [...new Set([...list_word_id, ...list_tag_id])]
-                    unionWords.forEach(id => {
-                        if (document.getElementById(id))
-                        document.getElementById(id).remove() 
-                    })
-            unionWords = []
-        })
-
-        
-        document.getElementById('searchIngr').addEventListener('input', () => {
-            let searchValue = document.getElementById('searchIngr').value
-            //save original list and restore at each new input before filter
-            document.getElementById('ingredients-list2').innerHTML = createIngredientsSortedList(recipes);
-            filterList (searchValue, 'ingr')
-        })
-
-        document.getElementById('searchAppli').addEventListener('input', () => {
-            let searchValue = document.getElementById('searchAppli').value
-            //save original list and restore at each new input before filter
-            document.getElementById('appliance-list2').innerHTML = createApplianceSortedList(recipes);
-            filterList (searchValue, 'appli')
-        })
-
-        document.getElementById('searchUst').addEventListener('input', () => {
-            let searchValue = document.getElementById('searchUst').value
-            //save original list and restore at each new input before filter
-            document.getElementById('ustensils-list2').innerHTML = createUstensilsSortedList(recipes);
-            filterList (searchValue, 'ust')
-        })
-
-
         // Searchbar filter recipe on input and show result
-        document.getElementById('searhBar').addEventListener('input', function (e) {
-            let searchValue = document.getElementById('searhBar').value
-            if (searchValue.length  > 2 || searchValue.length  < 3) { 
+        document.getElementById('searhBar').addEventListener('input', function () {
+            searchValue = document.getElementById('searhBar').value
+            if (searchValue.length  > 2) { 
                 //------------------- Start timer ----------------
-                //const t0 = performance.now();
-                //for (let i=0; i < 2000; i++){
-                    filteredRecipes = filterSearch(searchValue, Recipes)
+                const t0 = performance.now();
+                for (let i=0; i < 2000; i++){
+                    filteredRecipes = filterSearch(searchValue, filteredRecipes)
                     //document.getElementById('searhBar').value = " "
-                //}
-                //const t1 = performance.now();
-                //console.log(`Call to filtrSearch took ${(t1 - t0)/2000} milliseconds in average.`);             
+                }
+                const t1 = performance.now();
+                console.log(`Call to filtrSearch took ${(t1 - t0)/2000} milliseconds in average.`);             
                 //-------------------- End timer ---------------
-                var intersection = filteredRecipes.filter(value => tagFilteredRecipes.includes(value))
-                showResult(intersection)
-                createLists(intersection)
+                //var intersection = filteredRecipes .filter(value => tagFilteredRecipes.includes(value))
+                showResult(filteredRecipes)
+                //createLists(intersection)
 
                 // !!
-                
+                /*
                 let searchWords = searchValue.toLowerCase().split(" ");
                 list_word_id = []
                 searchWords.forEach(w => {
@@ -196,9 +121,12 @@ class App {
                         document.getElementById(id).remove() 
                     })
                     unionWords = []  
-                })
+                })*/
             }
-        //showResult(filteredRecipes);
+            else if (searchValue.length  < 3) {
+                showResult(Recipes)
+            }
+            //showResult(filteredRecipes);
         }) 
         showResult(filteredRecipes);    
     }

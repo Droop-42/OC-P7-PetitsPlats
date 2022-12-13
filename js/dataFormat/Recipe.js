@@ -27,7 +27,7 @@ class Recipe {
             let quant=''
             if (typeof i.unit !== "undefined") {unit= i.unit};
             if (typeof i.quantity !== "undefined") {quant= ': '+i.quantity}; 
-            listIngr+='<p class="my-0 px-1">'+i.ingredient+quant+' '+unit+'</p>'
+            listIngr+='<p class="my-0 px-1"><b>'+i.ingredient+'</b>'+quant+' '+unit+'</p>'
         });
         return listIngr
     }

@@ -1,36 +1,28 @@
 
+body {
+    padding-bottom: 30px;
+}
+#alert {
+    display: none;
+}
+
+/* clears the ‘X’ from Internet Explorer */
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
 $dropdown-min-width:                100%;
 $dropdown-padding-x:                0;
 $dropdown-padding-y:                10rem;
 $dropdown-spacer:                   .125rem;
-//$dropdown-font-size:                $font-size-base;
-
 $dropdown-color:                    white ;
 $dropdown-bg:                       #0d6efd;
-/*$dropdown-border-color:             rgba($black, .15);*/
 $dropdown-border-radius:            0 0 5px 5px;
-/*$dropdown-border-width:             $border-width;
-$dropdown-inner-border-radius:      subtract($dropdown-border-radius, $dropdown-border-width);
-$dropdown-divider-bg:               $dropdown-border-color;
-$dropdown-divider-margin-y:         $spacer * .5;
-$dropdown-box-shadow:               $box-shadow;
-*/
 $dropdown-link-color:               white;
-//$dropdown-link-hover-color:         shade-color(gray, 0%);
 $dropdown-link-hover-bg:            gray;
-/*
-$dropdown-link-active-color:        $component-active-color;
-$dropdown-link-active-bg:           $component-active-bg;
+$dropdown-header-color:             red;
 
-$dropdown-link-disabled-color:      $gray-500;
-
-$dropdown-item-padding-y:           $spacer * .25;
-$dropdown-item-padding-x:           $spacer;
-*/
-$dropdown-header-color:             red;/*
-$dropdown-header-padding:           $dropdown-padding-y $dropdown-item-padding-x;
-*/
-
-/*.dropdown-toggle::after {
-    display: none !important;
-}*/

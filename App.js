@@ -177,10 +177,18 @@ class App {
                 //console.log(`Call to filtrSearch took ${(t1 - t0)/2000} milliseconds in average.`);             
                 //-------------------- End timer ---------------
                 var intersection = filteredRecipes.filter(value => tagFilteredRecipes.includes(value))
-                showResult(intersection)
-                createLists(intersection)
-
-                // !!
+                if (intersection.length === 0) {
+                    document.getElementById('alert').style.display = 'inline-block'
+                    document.getElementById('alert').innerHTML='Aucune recette ne correspond à votre recherche! Veuillez essayer autre chose.'
+                    showResult(intersection)
+                    createLists(intersection)
+                }
+                else {
+                    document.getElementById('alert').innerHTML=''
+                    document.getElementById('alert').style.display = 'none'
+                    showResult(intersection)
+                    createLists(intersection)
+                }
                 
                 let searchWords = searchValue.toLowerCase().split(" ");
                 list_word_id = []
@@ -198,7 +206,6 @@ class App {
                     unionWords = []  
                 })
             }
-        //showResult(filteredRecipes);
         }) 
         showResult(filteredRecipes);    
     }

@@ -74,20 +74,20 @@ document.getElementById('btn-lists').addEventListener('click', (e) => {
   const l2 = document.getElementById('ingredients-list2');
   const btnL = document.getElementById('btn-lists')
 
-  if (btnL.getAttribute("expanded") == 'false') {
+  if (btnL.getAttribute("data-expan") == 'false') {
       l2.style.display = "block";
       btnL.style.width = '30rem';
       btnL.style.borderRadius = '7px 7px 0 0';
-      btnL.setAttribute( "expanded", "true" );
+      btnL.setAttribute( "data-expan", "true" );
   }
-  else if (btnL.getAttribute("expanded") == 'true') {
+  else if (btnL.getAttribute("data-expan") == 'true') {
       if (e.target.id == 'searchIngr') {
         return 0
       } else {
         l2.style.display = "none";
       btnL.style.width = '200px';
       btnL.style.borderRadius = '7px 7px 7px 7px';
-      btnL.setAttribute( "expanded", "false" );
+      btnL.setAttribute( "data-expan", "false" );
       }
       
   }
@@ -98,20 +98,20 @@ document.getElementById('btn-lists2').addEventListener('click', (e) => {
   const l2 = document.getElementById('appliance-list2');
   const btnL = document.getElementById('btn-lists2')
 
-  if (btnL.getAttribute("expanded") == 'false') {
+  if (btnL.getAttribute("data-expan") == 'false') {
       l2.style.display = "block";
       btnL.style.width = '30rem';
       btnL.style.borderRadius = '7px 7px 0 0';
-      btnL.setAttribute( "expanded", "true" );
+      btnL.setAttribute( "data-expan", "true" );
   }
-  else if (btnL.getAttribute("expanded") == 'true') {
+  else if (btnL.getAttribute("data-expan") == 'true') {
     if (e.target.id == 'searchAppli') {
       return 0
     } else {
       l2.style.display = "none";
       btnL.style.width = '200px';
       btnL.style.borderRadius = '7px 7px 7px 7px';
-      btnL.setAttribute( "expanded", "false" );
+      btnL.setAttribute( "data-expan", "false" );
     }
   }
 })  
@@ -121,20 +121,20 @@ document.getElementById('btn-lists3').addEventListener('click', (e) => {
   const l2 = document.getElementById('ustensils-list2');
   const btnL = document.getElementById('btn-lists3')
 
-  if (btnL.getAttribute("expanded") == 'false') {
+  if (btnL.getAttribute("data-expan") == 'false') {
       l2.style.display = "block";
       btnL.style.width = '30rem';
       btnL.style.borderRadius = '7px 7px 0 0';
-      btnL.setAttribute( "expanded", "true" );
+      btnL.setAttribute( "data-expan", "true" );
   }
-  else if (btnL.getAttribute("expanded") == 'true') {
+  else if (btnL.getAttribute("data-expan") == 'true') {
     if (e.target.id == 'searchUst') {
       return 0
     } else {
       l2.style.display = "none";
       btnL.style.width = '200px';
       btnL.style.borderRadius = '7px 7px 7px 7px';
-      btnL.setAttribute( "expanded", "false" );
+      btnL.setAttribute( "data-expan", "false" );
     }
   }
 })

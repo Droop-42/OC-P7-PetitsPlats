@@ -96,7 +96,7 @@
 
 .dropdown-menu {
   column-count: 3;
-  column-gap: 20;
+  column-gap: 20px;
   font-size: small !important;
   max-height: 400px;
   padding: 10px;
@@ -114,7 +114,7 @@
   color: #dc3545;
   background-color: #0d6efd;
   column-count: 3;
-  column-gap: 20;
+  column-gap: 20px;
   font-size: small !important;
   max-height: 400px;
   padding: 10px;
@@ -135,7 +135,7 @@
   color: white;
   background-color: #0d6efd;
   column-count: 3;
-  column-gap: 20;
+  column-gap: 20px;
   font-size: small !important;
   max-height: 400px;
   width: 30rem;
@@ -161,7 +161,7 @@
   color: white;
   background-color: #198754;
   column-count: 3;
-  column-gap: 20;
+  column-gap: 20px;
   font-size: small !important;
   max-height: 400px;
   width: 30rem;
@@ -187,7 +187,7 @@
   color: white;
   background-color: #dc3545;
   column-count: 3;
-  column-gap: 20;
+  column-gap: 20px;
   font-size: small !important;
   max-height: 400px;
   width: 30rem;
@@ -241,7 +241,7 @@ input[type=search]::-webkit-search-results-decoration {
   position: relative;
 }
 
-.input-box i {
+.input-box span {
   position: absolute;
   right: 30px;
   top: 15px;
@@ -304,7 +304,6 @@ input[type=search]::-webkit-search-results-decoration {
   width: 40%;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 }

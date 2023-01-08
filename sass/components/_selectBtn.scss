@@ -3,8 +3,6 @@
       margin: 0 !important;
       padding: 0 !important;
       transform: translate(0px, 36px) !important;
-      //border-top-left-radius: 0 !important;
-      //border-top-right-radius: 0 !important;
       width: 30rem !important;
   }
 
@@ -98,7 +96,7 @@
 
 .dropdown-menu {
   column-count: 3;
-  column-gap: 20;
+  column-gap: 20px;
   font-size: small !important;
   max-height: 400px;
   padding: 10px;
@@ -116,7 +114,7 @@
   color: #dc3545;
   background-color: #0d6efd;
   column-count: 3;
-  column-gap: 20;
+  column-gap: 20px;
   font-size: small !important;
   max-height: 400px;
   padding: 10px;
@@ -137,7 +135,7 @@
   color: white;
   background-color: #0d6efd;
   column-count: 3;
-  column-gap: 20;
+  column-gap: 20px;
   font-size: small !important;
   max-height: 400px;
   width: 30rem;
@@ -163,7 +161,7 @@
   color: white;
   background-color: #198754;
   column-count: 3;
-  column-gap: 20;
+  column-gap: 20px;
   font-size: small !important;
   max-height: 400px;
   width: 30rem;
@@ -189,7 +187,7 @@
   color: white;
   background-color: #dc3545;
   column-count: 3;
-  column-gap: 20;
+  column-gap: 20px;
   font-size: small !important;
   max-height: 400px;
   width: 30rem;
